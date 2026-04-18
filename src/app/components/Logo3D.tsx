@@ -68,15 +68,31 @@ export default function Logo3D({ svgUrl, animate }: { svgUrl: string; animate: s
     <SVG3D
       svg={svgString}
       animate={animate as any}
-      depth={0.4}
-      color="#ffffff"
-      material="glass"
+      depth={0.5}
+      smoothness={0.3}
+      material="plastic"
+      metalness={0.1}
+      roughness={0.4}
       background="#111111"
       width="100%"
       height="100%"
+      zoom={4.5}
+      fov={45}
+      rotationX={-0.2}
+      rotationY={0.3}
+      lightIntensity={1.8}
+      ambientIntensity={0.4}
+      shadow={true}
       interactive={true}
       cursorOrbit={true}
-      shadow={true}
+      draggable={true}
+      scrollZoom={false}
+      resetOnIdle={true}
+      resetDelay={3}
+      intro="zoom"
+      introDuration={3}
+      introFrom={{ zoom: 18, opacity: 0 }}
+      introTo={{ zoom: 4.5, opacity: 1 }}
     />
   );
 }
