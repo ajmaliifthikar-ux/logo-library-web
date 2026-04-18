@@ -1,9 +1,8 @@
 "use client";
 
-import { useState, useMemo, useCallback, Suspense, lazy } from "react";
+import { useState, useMemo, useCallback } from "react";
 import logoData from "./metadata.json";
-
-const SVG3D = lazy(() => import("3dsvg").then((m) => ({ default: m.SVG3D })));
+import Logo3D from "./components/Logo3D";
 
 interface Asset {
   type: string;
@@ -44,15 +43,7 @@ function Toast({ message, show, onDone }: { message: string; show: boolean; onDo
 }
 
 /* ── 3D Preview ── */
-function Logo3D({ svgUrl, animate }: { svgUrl: string; animate: string }) {
-  return (
-    <div className="w-full h-64 rounded-lg overflow-hidden bg-neutral-900">
-      <Suspense fallback={<div className="w-full h-full flex items-center justify-center text-neutral-500 text-sm">Loading 3D…</div>}>
-        <SVG3D svg={svgUrl} animate={animate as any} depth={0.4} color="#ffffff" material="glass" />
-      </Suspense>
-    </div>
-  );
-}
+
 
 export default function LogoLibrary() {
   const [search, setSearch] = useState("");
