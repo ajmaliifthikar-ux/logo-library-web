@@ -195,17 +195,17 @@ export default function LogoLibrary() {
                   onClick={() => setSelectedBrand(key)}
                   className="group bg-white rounded-lg border border-neutral-200 hover:border-black transition-all cursor-pointer flex flex-col"
                 >
-                  <div className="h-24 flex items-center justify-center p-4 relative bg-neutral-50 rounded-t-lg">
+                  <div className="h-24 flex items-center justify-center p-4 relative bg-neutral-950 rounded-t-lg">
                     {!broken ? (
                       <img
                         src={src}
                         alt={brand.brand_name}
                         loading="lazy"
                         onError={() => handleImgError(src)}
-                        className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-200 [filter:invert(0)]"
+                        className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-200"
                       />
                     ) : (
-                      <span className="text-neutral-300 text-xs">—</span>
+                      <span className="text-neutral-600 text-xs">—</span>
                     )}
                     {brand.assets.length > 1 && (
                       <span className="absolute top-2 right-2 text-[10px] bg-white text-neutral-500 px-1.5 py-0.5 rounded border border-neutral-200">
@@ -235,11 +235,11 @@ export default function LogoLibrary() {
                   onClick={() => setSelectedBrand(key)}
                   className="flex items-center gap-4 bg-white rounded-lg border border-neutral-200 hover:border-black p-3 cursor-pointer transition-all"
                 >
-                  <div className="w-10 h-10 flex items-center justify-center bg-neutral-50 rounded border border-neutral-100 shrink-0">
+                  <div className="w-10 h-10 flex items-center justify-center bg-neutral-950 rounded border border-neutral-800 shrink-0">
                     {!broken ? (
                       <img src={src} alt={brand.brand_name} loading="lazy" onError={() => handleImgError(src)} className="max-h-6 max-w-6 object-contain" />
                     ) : (
-                      <span className="text-neutral-300 text-xs">—</span>
+                      <span className="text-neutral-600 text-xs">—</span>
                     )}
                   </div>
                   <div className="flex-1 min-w-0">
@@ -290,7 +290,7 @@ export default function LogoLibrary() {
                   const copyId = `${selectedBrand}-${asset.type}`;
                   return (
                     <div key={asset.type} className="flex items-center gap-3 bg-neutral-50 rounded-lg p-3 border border-neutral-100">
-                      <div className="w-10 h-10 flex items-center justify-center bg-white rounded border border-neutral-200 shrink-0">
+                      <div className="w-10 h-10 flex items-center justify-center bg-neutral-950 rounded border border-neutral-800 shrink-0">
                         <img src={src} alt={asset.type} className="max-h-6 max-w-6 object-contain" onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
                       </div>
                       <div className="flex-1 min-w-0">
