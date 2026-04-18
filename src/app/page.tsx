@@ -25,7 +25,7 @@ function toCloudinaryUrl(localPath: string) {
 }
 
 function getFullUrl(path: string) {
-  return `https://logo-explorer.vercel.app/assets/${path}`;
+  return `https://logo-explorer.vercel.app/assets/${path.replace(/^Assets\//, "")}`;
 }
 
 /* ── Toast ── */
@@ -94,10 +94,8 @@ export default function LogoLibrary() {
   }, []);
 
   const getLocalPath = useCallback((key: string, brand: Brand, asset?: Asset) => {
-    const cat = brand.category.replace(/ & /g, "_and_").replace(/ /g, "_");
     const a = asset || brand.assets.find((x) => x.type === "icon") || brand.assets.find((x) => x.type === "default") || brand.assets[0];
-    const fname = a.path.split("/").pop()!;
-    return `/assets/${cat}/${key}/${fname}`;
+    return `/assets/${a.path.replace(/^Assets\//, "")}`;
   }, []);
 
   const handleImgError = useCallback((src: string) => {
